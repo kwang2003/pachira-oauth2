@@ -30,6 +30,7 @@ public class DefaultClientDetailsService implements ClientDetailsService {
 		authorizedGrantTypes.add("password");
 		authorizedGrantTypes.add("authorization_code");
 		authorizedGrantTypes.add("client_credentials");
+		authorizedGrantTypes.add("refresh_token");
 		details.setAuthorizedGrantTypes(authorizedGrantTypes);;
 		return details;
 	}
