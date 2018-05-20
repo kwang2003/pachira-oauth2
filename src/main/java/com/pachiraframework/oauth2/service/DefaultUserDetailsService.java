@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -29,7 +30,7 @@ public class DefaultUserDetailsService implements UserDetailsService {
 	private User mockUser() {
 		Collection<GrantedAuthority> authorities = new HashSet<>();
 		authorities.add(new SimpleGrantedAuthority("admin"));
-		User user = new User("admin","123456",authorities);
+		User user = new User("admin",new BCryptPasswordEncoder().encode("123456"),authorities);
 		return user;
 	}
 }
